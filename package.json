@@ -1,0 +1,23 @@
+{
+  "name": "goodreads-to-beeminder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "verify": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szymonkorytnicki/goodreads-to-beeminder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szymonkorytnicki/goodreads-to-beeminder/issues"
+  },
+  "homepage": "https://github.com/szymonkorytnicki/goodreads-to-beeminder#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "rss-to-json": "^2.0.2"
+  }
+}
