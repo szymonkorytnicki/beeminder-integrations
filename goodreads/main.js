@@ -1,3 +1,6 @@
+/**
+ * Check if user had bumped "pages read" today
+ */
 const USER_ID = "126622339";
 const URL = `https://www.goodreads.com/user/updates_rss/${USER_ID}`;
 const { parse } = require("rss-to-json");

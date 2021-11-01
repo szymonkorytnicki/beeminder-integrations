@@ -2,10 +2,6 @@
   "name": "goodreads-to-beeminder",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
-  "scripts": {
-    "verify": "node main.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/szymonkorytnicki/goodreads-to-beeminder.git"
