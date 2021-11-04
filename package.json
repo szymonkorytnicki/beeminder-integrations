@@ -1,10 +1,10 @@
 {
-  "name": "goodreads-to-beeminder",
+  "name": "skorytnicki-beeminder-integrations",
   "version": "1.0.0",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/szymonkorytnicki/goodreads-to-beeminder.git"
+    "url": "git+https://github.com/szymonkorytnicki/beeminder-integrations.git"
   },
   "scripts": {
     "github": "node github-has-commit/main.js",
@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/szymonkorytnicki/goodreads-to-beeminder/issues"
+    "url": "https://github.com/szymonkorytnicki/beeminder-integrations/issues"
   },
-  "homepage": "https://github.com/szymonkorytnicki/goodreads-to-beeminder#readme",
+  "homepage": "https://github.com/szymonkorytnicki/beeminder-integrations#readme",
   "dependencies": {
     "@octokit/core": "^3.5.1",
     "axios": "^0.21.4",
