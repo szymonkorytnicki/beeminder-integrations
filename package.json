@@ -6,6 +6,10 @@
     "type": "git",
     "url": "git+https://github.com/szymonkorytnicki/goodreads-to-beeminder.git"
   },
+  "scripts": {
+    "github": "node github-has-commit/main.js",
+    "goodreads": "node goodreads-has-pages-update/main.js"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -14,6 +18,7 @@
   "homepage": "https://github.com/szymonkorytnicki/goodreads-to-beeminder#readme",
   "dependencies": {
     "@octokit/core": "^3.5.1",
+    "axios": "^0.21.4",
     "config": "^3.3.6",
     "rss-to-json": "^2.0.2"
   }

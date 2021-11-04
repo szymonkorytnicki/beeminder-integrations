@@ -1,6 +1,10 @@
 # beeminder-integrations
 
-WIP - I'll be back here.
+Beeminder integrations for me.
+
+## Usage
+
+Set up config/default.json for each integration
 
 ## goodreads-has-pages-update
 
@@ -11,6 +15,14 @@ Since it's a program, versatility is unlimited. We can imagine this script makin
 
 When it's in beeminder you get your daily timing of reading - might be helpful to uncover reading patterns (e.g. I read when my kid is asleep; I read more often on weekends...).
 
+```
+npm run goodreads
+```
+
 ## github-has-commit
 
-todo
+Check if committed at least once today.
+
+```
+npm run github
+```

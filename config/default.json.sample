@@ -1,0 +1,18 @@
+{
+  "goodreads": {
+    "userId": "126622339",
+    "beeminder": {
+      "goal": "test"
+    }
+  },
+  "github": {
+    "apiKey": "",
+    "beeminder": {
+      "goal": "test"
+    }
+  },
+  "beeminder": {
+    "user": "skorytnicki",
+    "authToken": ""
+  }
+}
