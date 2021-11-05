@@ -7,12 +7,8 @@ function isToday(timestamp) {
     someDate.getFullYear() == today.getFullYear()
   );
 }
-module.exports = {
-  hasUpdateToday: function (feed) {
-    return feed.items.some((feedItem) => {
-      return (
-        feedItem.title.includes("is on page") && isToday(feedItem.published)
-      );
-    });
-  },
-};
+export function hasUpdateToday(feed) {
+  return feed.items.some((feedItem) => {
+    return feedItem.title.includes("is on page") && isToday(feedItem.published);
+  });
+}

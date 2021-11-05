@@ -7,13 +7,16 @@
     "url": "git+https://github.com/szymonkorytnicki/beeminder-integrations.git"
   },
   "scripts": {
-    "github": "node github-has-commit/main.js",
-    "goodreads": "node goodreads-has-pages-update/main.js"
+    "github": "node github-has-commit/main.mjs",
+    "goodreads": "node goodreads-has-pages-update/main.mjs"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/szymonkorytnicki/beeminder-integrations/issues"
+  },
+  "engines": {
+    "node": ">=17"
   },
   "homepage": "https://github.com/szymonkorytnicki/beeminder-integrations#readme",
   "dependencies": {

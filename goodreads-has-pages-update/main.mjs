@@ -1,10 +1,11 @@
 /**
  * Check if user had bumped "pages read" today
  */
-const config = require("config");
-const { parse } = require("rss-to-json");
-const { hasUpdateToday } = require("./utils");
-const { hasDatapointToday, createDatapoint } = require("../beeminder-api/main");
+import config from "config";
+import rssToJson from "rss-to-json";
+const { parse } = rssToJson;
+import { hasUpdateToday } from "./utils.mjs";
+import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.mjs";
 
 const GOAL = config.get("goodreads.beeminder.goal");
 const USER_ID = config.get("goodreads.userId");
