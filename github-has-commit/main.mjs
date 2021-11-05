@@ -14,14 +14,18 @@ const octokit = new Octokit({ auth: API_KEY });
 
 (async () => {
   const feeds = await octokit.request("GET /feeds");
-  const feed = await parse(feeds.data.current_user_actor_url);
-  if (hasCommitToday(feed)) {
-    console.log("Github :: has update");
-    if (!(await hasDatapointToday(GOAL))) {
-      await createDatapoint(GOAL);
+  try {
+    const feed = await parse(feeds.data.current_user_actor_url);
+    if (hasCommitToday(feed)) {
+      console.log("Github :: has update");
+      if (!(await hasDatapointToday(GOAL))) {
+        await createDatapoint(GOAL);
+      }
+    } else {
+      console.log("Github :: does not have update");
     }
-  } else {
-    console.log("Github :: does not have update");
+  } catch (e) {
+    console.log("Github :: error", e.message);
   }
   process.exit();
 })();
