@@ -1,6 +1,13 @@
 {
+  "anki": {
+    "username": "test",
+    "password": "test",
+    "beeminder": {
+      "goal": "test"
+    }
+  },
   "goodreads": {
-    "userId": "126622339",
+    "userId": "test",
     "beeminder": {
       "goal": "test"
     }
@@ -12,7 +19,7 @@
     }
   },
   "beeminder": {
-    "user": "skorytnicki",
+    "user": "test",
     "authToken": ""
   }
 }

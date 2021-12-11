@@ -8,7 +8,8 @@
   },
   "scripts": {
     "github": "node github-has-commit/main.mjs",
-    "goodreads": "node goodreads-has-pages-update/main.mjs"
+    "goodreads": "node goodreads-has-pages-update/main.mjs",
+    "anki": "node anki-cleared-queue/main.mjs"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +24,7 @@
     "@octokit/core": "^3.5.1",
     "axios": "^0.21.4",
     "config": "^3.3.6",
+    "puppeteer": "^13.0.0",
     "rss-to-json": "^2.0.2"
   }
 }
