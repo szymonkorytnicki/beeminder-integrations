@@ -26,3 +26,11 @@ Check if committed at least once today.
 ```
 npm run github
 ```
+
+## anki-cleared-queue
+
+Check if Anki queue is empty (does not include new cards, only cards to do)
+
+```
+npm run anki
+```
