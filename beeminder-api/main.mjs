@@ -3,6 +3,7 @@ import config from "config";
 const USER = config.get("beeminder.user");
 const AUTH_TOKEN = config.get("beeminder.authToken");
 import { isToday } from "./utils.mjs";
+import {format} from 'date-fns'
 
 export async function hasDatapointToday(goal) {
   try {
@@ -30,6 +31,7 @@ export async function createDatapoint(goal) {
       `https://www.beeminder.com/api/v1/users/${USER}/goals/${goal}/datapoints.json?auth_token=${AUTH_TOKEN}`,
       {
         value: 1,
+        comment: format(new Date(), "yyyy-MM-dd HH:mm")
       }
     );
     return true;
