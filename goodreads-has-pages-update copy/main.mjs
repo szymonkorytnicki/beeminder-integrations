@@ -5,7 +5,7 @@ import config from "config";
 import rssToJson from "rss-to-json";
 const { parse } = rssToJson;
 import { hasUpdateToday } from "./utils.mjs";
-import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.mjs";
+import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.ts";
 
 const GOAL = config.get("goodreads.beeminder.goal");
 const USER_ID = config.get("goodreads.userId");
