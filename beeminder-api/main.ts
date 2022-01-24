@@ -10,7 +10,7 @@ type BeeminderDatapoint = {
   daystamp: string
 }
 
-export async function hasDatapointToday(goal: string) {
+export async function hasDatapointToday(goal: string): Promise<boolean> {
   try {
     const datapoints = await axios.get(
       `https://www.beeminder.com/api/v1/users/${USER}/goals/${goal}/datapoints.json?auth_token=${AUTH_TOKEN}`
@@ -29,7 +29,7 @@ export async function hasDatapointToday(goal: string) {
     return false;
   }
 }
-export async function createDatapoint(goal: string) {
+export async function createDatapoint(goal: string): Promise<boolean> {
   try {
     console.log("Beeminder :: creating datapoint for goal", goal);
     await axios.post(

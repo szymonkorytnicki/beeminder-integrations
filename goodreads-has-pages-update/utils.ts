@@ -1,4 +1,4 @@
-function isToday(timestamp: string) {
+function isToday(timestamp: string): boolean {
   const today = new Date();
   const someDate = new Date(timestamp);
   return (
@@ -8,15 +8,15 @@ function isToday(timestamp: string) {
   );
 }
 
-type FeedItem = {
+type GoodreadsFeedItem = {
   title: string;
   published: string;
 }
-type Feed = {
-  items: FeedItem[];
+type GoodreadsFeed = {
+  items: GoodreadsFeedItem[];
 }
 
-export function hasUpdateToday(feed: Feed) {
+export function hasUpdateToday(feed: GoodreadsFeed) {
   return feed.items.some((feedItem) => {
     return feedItem.title.includes("is on page") && isToday(feedItem.published);
   });

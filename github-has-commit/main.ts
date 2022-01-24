@@ -3,18 +3,17 @@
  */
 
 import config from "config";
-const API_KEY = config.get("github.apiKey");
-const GOAL = config.get("github.beeminder.goal");
+const API_KEY: string = config.get("github.apiKey");
+const GOAL: string = config.get("github.beeminder.goal");
 import { Octokit } from "@octokit/core";
-import rssToJson from "rss-to-json";
-const { parse } = rssToJson;
-import { hasCommitToday } from "./utils.mjs";
-import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.mjs";
+import { parse } from "rss-to-json";
+import { hasCommitToday } from "./utils";
+import { hasDatapointToday, createDatapoint } from "../beeminder-api/main";
 const octokit = new Octokit({ auth: API_KEY });
 
 const feeds = await octokit.request("GET /feeds");
 try {
-  const feed = await parse(feeds.data.current_user_actor_url);
+  const feed = await parse(feeds.data.current_user_actor_url as string, {});
   if (hasCommitToday(feed)) {
     console.log("Github :: has update");
     if (!(await hasDatapointToday(GOAL))) {
