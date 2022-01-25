@@ -1,15 +1,16 @@
 {
   "name": "skorytnicki-beeminder-integrations",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/szymonkorytnicki/beeminder-integrations.git"
   },
   "scripts": {
-    "github": "node github-has-commit/main.mjs",
-    "goodreads": "node goodreads-has-pages-update/main.mjs",
-    "anki": "node anki-cleared-queue/main.mjs"
+    "compile": "npx tsc",
+    "github": "node build/github-has-commit/main.mjs",
+    "goodreads": "node build/goodreads-has-pages-update/main.mjs",
+    "anki": "node build/anki-cleared-queue/main.mjs"
   },
   "author": "",
   "license": "ISC",

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import config from "config";
 const USER = config.get("beeminder.user");
 const AUTH_TOKEN = config.get("beeminder.authToken");
@@ -24,8 +24,10 @@ export async function hasDatapointToday(goal: string): Promise<boolean> {
       console.log("Beeminder :: does not have datapoint today for goal", goal);
     }
     return hasDatapoint;
-  } catch (e) {
-    console.log("Beeminder :: error fetching datapoints", e.message);
+  } catch (e: unknown) {
+    if (axios.isAxiosError(e)) {
+      console.log("Beeminder :: error fetching datapoints", e.message);
+    }
     return false;
   }
 }
@@ -40,8 +42,10 @@ export async function createDatapoint(goal: string): Promise<boolean> {
       }
     );
     return true;
-  } catch (e) {
-    console.log("Beeminder :: error creating datapoint", e.message);
+  } catch (e: unknown) {
+    if (axios.isAxiosError(e)) {
+      console.log("Beeminder :: error creating datapoint", e.message);
+    }
     return false;
   }
 }
