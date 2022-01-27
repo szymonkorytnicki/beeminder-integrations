@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import config from "config";
 const USER = config.get("beeminder.user");
 const AUTH_TOKEN = config.get("beeminder.authToken");
