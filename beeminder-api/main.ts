@@ -2,7 +2,7 @@ import axios from "axios";
 import config from "config";
 const USER = config.get("beeminder.user");
 const AUTH_TOKEN = config.get("beeminder.authToken");
-import { isToday } from "./utils";
+import { isToday } from "./utils.js";
 import {format} from 'date-fns'
 
 type BeeminderDatapoint = {

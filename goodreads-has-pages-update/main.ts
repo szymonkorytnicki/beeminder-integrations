@@ -3,8 +3,8 @@
  */
 import config from "config";
 import { parse } from "rss-to-json";
-import { hasUpdateToday } from "./utils";
-import { hasDatapointToday, createDatapoint } from "../beeminder-api/main"
+import { hasUpdateToday } from "./utils.js";
+import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.js"
 
 const GOAL: string = config.get("goodreads.beeminder.goal");
 const USER_ID: string = config.get("goodreads.userId");

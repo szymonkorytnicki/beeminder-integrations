@@ -3,7 +3,7 @@
  */
 import config from "config";
 import puppeteer from "puppeteer";
-import { hasDatapointToday, createDatapoint } from "../beeminder-api/main";
+import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.js";
 
 const GOAL: string = config.get("anki.beeminder.goal");
 const USERNAME: string = config.get("anki.username");
