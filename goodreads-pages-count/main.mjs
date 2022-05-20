@@ -1,5 +1,5 @@
 /**
- * Check if user had bumped "pages read" today
+ * Check if user had bumped "total pages read" count
  */
  import config from "config";
  import puppeteer from "puppeteer";
@@ -9,9 +9,10 @@
  const USERID = config.get("goodreadsPages.userId");
  const EMAIL = config.get("goodreadsPages.email");
  const PASSWORD = config.get("goodreadsPages.password");
-  
+
+
  const browser = await puppeteer.launch({
-         headless: false,
+         headless: true,
         //  executablePath: '/usr/bin/chromium-browser',
         //  args: ['--no-sandbox', '--disable-setuid-sandbox']
  });
@@ -44,7 +45,8 @@
  });
  
  const goalData = await getGoal(GOAL);
- if (totalPagesCount > goalData.curval) {
+
+ if (totalPagesCount > goalData.data.curval) {
     console.log('Goodreads Pages :: updated today')
      await createDatapoint(GOAL, {
        value: totalPagesCount
