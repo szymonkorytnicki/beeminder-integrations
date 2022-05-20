@@ -3,7 +3,7 @@
  */
  import config from "config";
  import puppeteer from "puppeteer";
- import { hasDatapointToday, createDatapoint } from "../beeminder-api/main.mjs";
+ import { getGoal, createDatapoint } from "../beeminder-api/main.mjs";
  
  const GOAL = config.get("goodreadsPages.beeminder.goal");
  const USERID = config.get("goodreadsPages.userId");
@@ -28,21 +28,30 @@
  
  
  await page.waitForSelector('.siteHeaderBottomSpacer');
+ 
  await page.goto('https://www.goodreads.com/review/stats/'+USERID+'#pages');
+ await page.waitForSelector('.siteHeaderBottomSpacer');
+ await page.waitForTimeout(5000);
+
+ const totalPagesCount = await page.evaluate(() => {
+   const counters = document.querySelectorAll('.count');
+   let totalCount = 0;
+   for (let counter of counters) {
+     totalCount += parseInt(counter.innerText, 10);
+   }
+
+   return totalCount;
+ });
  
-//  const text = await page.evaluate(() => {
-//    const anchor = document.querySelector('.deckDueNumber');
-//    return parseInt(anchor.innerText, 10);
-//  });
- 
-//  if (text === 0) {
-//    console.log('Anki :: done for today')
-//    if (!(await hasDatapointToday(GOAL))) {
-//      await createDatapoint(GOAL);
-//    }
-//  } else {
-//    console.log('Anki :: not done for today')
-//  }
+ const goalData = await getGoal(GOAL);
+ if (totalPagesCount > goalData.curval) {
+    console.log('Goodreads Pages :: updated today')
+     await createDatapoint(GOAL, {
+       value: totalPagesCount
+     });
+ } else {
+   console.log('Goodreads Pages :: not done for today')
+ }
  
  await browser.close();
  
