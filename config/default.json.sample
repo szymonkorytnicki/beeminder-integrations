@@ -12,6 +12,14 @@
       "goal": "test"
     }
   },
+  "goodreadsPages": {
+    "userId": "test",
+    "email": "test",
+    "password": "test",
+    "beeminder": {
+      "goal": "test"
+    }
+  },
   "github": {
     "apiKey": "",
     "beeminder": {

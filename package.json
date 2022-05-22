@@ -9,6 +9,7 @@
   "scripts": {
     "github": "node github-has-commit/main.mjs",
     "goodreads": "node goodreads-has-pages-update/main.mjs",
+    "goodreadsPages": "node goodreads-pages-count/main.mjs",
     "anki": "node anki-cleared-queue/main.mjs"
   },
   "author": "",

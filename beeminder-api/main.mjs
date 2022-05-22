@@ -24,17 +24,28 @@ export async function hasDatapointToday(goal) {
     return false;
   }
 }
-export async function createDatapoint(goal) {
+export async function createDatapoint(goal, datapoint = {}) {
   try {
     console.log("Beeminder :: creating datapoint for goal", goal);
     await axios.post(
       `https://www.beeminder.com/api/v1/users/${USER}/goals/${goal}/datapoints.json?auth_token=${AUTH_TOKEN}`,
       {
-        value: 1,
-        comment: format(new Date(), "yyyy-MM-dd HH:mm")
+        value: datapoint.value ?? 1,
+        comment: datapoint.comment ?? format(new Date(), "yyyy-MM-dd HH:mm")
       }
     );
     return true;
+  } catch (e) {
+    console.log("Beeminder :: error creating datapoint", e.message);
+    return false;
+  }
+}
+
+export async function getGoal(goal) {
+  try {
+    console.log("Beeminder :: fetching goal", goal);
+    return await axios.get(
+      `https://www.beeminder.com/api/v1/users/${USER}/goals/${goal}.json?auth_token=${AUTH_TOKEN}`);
   } catch (e) {
     console.log("Beeminder :: error creating datapoint", e.message);
     return false;
