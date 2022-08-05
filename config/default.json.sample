@@ -29,5 +29,11 @@
   "beeminder": {
     "user": "test",
     "authToken": ""
+  },
+  "memrise": {
+    "username": "test",
+    "beeminder": {
+      "goal": ""
+    }
   }
 }

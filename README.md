@@ -42,3 +42,8 @@ Check if total pages read count has changed and update your goal. This integrati
 ```
 npm run goodreadsPages
 ```
+
+## memrise
+
+Check memrise points. Only update graph if latest data is different than latest datapoint.
+This can be easily adjusted to words learned.
