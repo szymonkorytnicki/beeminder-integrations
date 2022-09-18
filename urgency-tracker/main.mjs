@@ -1,4 +1,4 @@
-import { createDatapoint, getGoals } from "../beeminder-api/main.mjs";
+import { createDatapoint, getGoals, getLatestDatapoint } from "../beeminder-api/main.mjs";
 import config from "config";
 
 const GOAL = config.get("urgency.goal");
@@ -20,6 +20,12 @@ const goalsWithLoad = goals.data
     };
   })
   .filter((goal) => goal.load > 0);
+
+const latestDatapoint = await getLatestDatapoint(GOAL);
+if (latestDatapoint.value === load) {
+  console.log("Value is the same. Not logging");
+  process.exit();
+}
 
 await createDatapoint(GOAL, {
   value: load,
