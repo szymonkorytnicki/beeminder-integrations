@@ -46,7 +46,7 @@ export async function getGoal(goal) {
       `https://www.beeminder.com/api/v1/users/${USER}/goals/${goal}.json?auth_token=${AUTH_TOKEN}`
     );
   } catch (e) {
-    console.log("Beeminder :: error creating datapoint", e.message);
+    console.log("Beeminder :: error getting goal", e.message);
     return false;
   }
 }
@@ -60,6 +60,26 @@ export async function getLatestDatapoint(goal) {
     return datapoints.data[0];
   } catch (e) {
     console.log("Beeminder :: error fetching datapoint", e.message);
+    return false;
+  }
+}
+
+export async function getProfile() {
+  try {
+    console.log("Beeminder :: fetching profile for ", USER);
+    return await axios.get(`https://www.beeminder.com/api/v1/me.json?auth_token=${AUTH_TOKEN}`);
+  } catch (e) {
+    console.log("Beeminder :: error fetching profile", e.message);
+    return false;
+  }
+}
+
+export async function getGoals() {
+  try {
+    console.log("Beeminder :: fetching goals");
+    return await axios.get(`https://www.beeminder.com/api/v1/users/${USER}/goals.json?auth_token=${AUTH_TOKEN}`);
+  } catch (e) {
+    console.log("Beeminder :: error fetching goals", e.message);
     return false;
   }
 }

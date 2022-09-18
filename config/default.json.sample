@@ -35,5 +35,8 @@
     "beeminder": {
       "goal": ""
     }
+  },
+  "urgency": {
+    "goal": ""
   }
 }
